@@ -1,12 +1,33 @@
 package com.nealma.domian;
 
+import javax.persistence.*;
+
 /**
  * Created by nealpc on 7/4/16.
  */
+@Entity
+@Table(name="t_user", uniqueConstraints = {@UniqueConstraint(columnNames={"name", "level"})})
 public class User {
+    @Id
+    @GeneratedValue
     private Long id;
+
+    @Column(nullable = false, length = 50, name = "name")
     private String name;
+
+    @Column(nullable = false)
     private Integer age;
+
+    @Column(nullable = false, columnDefinition = "tinyint(1) default '0'")
+    private Integer level;
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
 
     public Long getId() {
         return id;
