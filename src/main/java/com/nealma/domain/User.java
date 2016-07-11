@@ -1,4 +1,4 @@
-package com.nealma.domian;
+package com.nealma.domain;
 
 import javax.persistence.*;
 
